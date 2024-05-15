@@ -8,7 +8,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const userResponse = await axios.get('https://slack-bot-backend-livid.vercel.app/api/userinfo');
+        const userResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/userinfo`);
         setUserInfo(userResponse.data);
       } catch (error) {
         console.error('Error fetching user info:', error);
@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <img src="/logo-approval.png" alt="Approval Bot Logo" /> {/* Ensure the correct filename and extension */}
+        <img src="/logo-approval.png" alt="Approval Bot Logo" /> 
       </div>
       {userInfo && (
         <div className="profile">

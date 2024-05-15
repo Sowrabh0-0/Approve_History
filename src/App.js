@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AddToSlack from './components/AddToSlack';
 import ApprovalHistory from './components/ApprovalHistory';
-import './App.css';  // Import the App.css file
+import './App.css';  
 
 const App = () => {
   return (

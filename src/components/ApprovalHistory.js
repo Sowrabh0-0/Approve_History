@@ -14,7 +14,7 @@ const ApprovalHistory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://slack-bot-backend-livid.vercel.app/api/approvals');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/approvals`);
         if (Array.isArray(response.data)) {
           setData(response.data);
           setFilteredData(response.data);
@@ -75,7 +75,7 @@ const ApprovalHistory = () => {
     <div className="approval-history">
       <Navbar />
       <div className="header-content">
-        <h1 >Approval History</h1>
+        <h1>Approval History</h1>
       </div>
       <Filter onFilter={handleFilter} />
       <table {...getTableProps()} className="table">
