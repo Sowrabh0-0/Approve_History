@@ -2,9 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px;
   }
@@ -24,7 +22,7 @@
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #495057;
+    color: #fff;
     font-size: 14px;
   }
   
@@ -36,6 +34,13 @@
     border: 1px solid #ced4da;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #4c4c4c;
+    color: #fff;
+  }
+  
+  .filter input::placeholder,
+  .filter select::placeholder {
+    color: #b3b3b3; 
   }
   
   .filter button {
@@ -47,6 +52,7 @@
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
   }
   
   .filter button:hover {

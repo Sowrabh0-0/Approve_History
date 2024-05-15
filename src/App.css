@@ -1,5 +1,13 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  max-width: 100%;
 }
 
 .App-logo {
@@ -22,7 +30,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App-link {
@@ -49,7 +58,7 @@
 
 .bg {
   animation: slide 20s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, #484747 50%, #2d536c 50%);
+  background-image: linear-gradient(-60deg, #393535 50%, #000000 50%);
   bottom: 0;
   left: -50%;
   opacity: 0.5;

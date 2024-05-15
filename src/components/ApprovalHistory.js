@@ -14,7 +14,7 @@ const ApprovalHistory = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/approvals');
+        const response = await axios.get('https://slack-bot-backend-livid.vercel.app/api/approvals');
         if (Array.isArray(response.data)) {
           setData(response.data);
           setFilteredData(response.data);

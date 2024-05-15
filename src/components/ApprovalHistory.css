@@ -5,35 +5,59 @@
     margin: 0 auto;
     padding: 20px;
   }
-
+  
   .header-content {
     color: #ddd;
   }
   
   .table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Separate borders to allow for rounded corners */
+    border-spacing: 0; /* Remove spacing between table cells */
     margin-top: 20px;
-    border-radius: 20px;
+    border-radius: 12px;
+    overflow: hidden; /* Ensure the rounded corners are applied */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #2c2c2c; /* Dark background for table */
   }
   
   .table th,
   .table td {
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #444; /* Darker border */
     text-align: left;
+    background-color: #3c3c3c; /* Slightly lighter than table background */
+    color: #f9f9f9; /* White text */
   }
   
   .table th {
-    background-color: #f4f4f4;
+    background-color: #444; /* Darker header background */
+    border-top: none; /* Remove border from top of the header cells */
+    color: #f9f9f9; /* White text for headers */
+  }
+  
+  .table tr:first-child th:first-child {
+    border-top-left-radius: 12px; /* Top-left rounded corner */
+  }
+  
+  .table tr:first-child th:last-child {
+    border-top-right-radius: 12px; /* Top-right rounded corner */
+  }
+  
+  .table tr:last-child td:first-child {
+    border-bottom-left-radius: 12px; /* Bottom-left rounded corner */
+  }
+  
+  .table tr:last-child td:last-child {
+    border-bottom-right-radius: 12px; /* Bottom-right rounded corner */
   }
   
   .table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #4c4c4c; /* Alternating row color */
   }
   
   .table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #555; /* Hover effect */
   }
   
   .loading,
@@ -52,5 +76,15 @@
   .filter-container input {
     padding: 10px;
     font-size: 16px;
+    border: 1px solid #444; /* Match border color with table */
+    border-radius: 4px;
+    background-color: #2c2c2c; /* Match background color with table */
+    color: #f9f9f9; /* White text */
+  }
+  
+  .filter-container select:focus,
+  .filter-container input:focus {
+    outline: none;
+    border-color: #666; /* Focus border color */
   }
   
