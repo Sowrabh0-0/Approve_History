@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { useTable } from 'react-table';
 import axios from 'axios';
+import io from 'socket.io-client';
 import Filter from './Filter';
 import Navbar from './Navbar';
 import './ApprovalHistory.css';
@@ -31,6 +32,30 @@ const ApprovalHistory = () => {
         };
 
         fetchData(); // Call the fetchData function when the component mounts
+
+        // Setup WebSocket connection
+        const socket = io(process.env.REACT_APP_BACKEND_URL);
+
+        // Listen for real-time updates
+        socket.on('newApproval', (newApproval) => {
+            setData(prevData => [...prevData, newApproval]);
+            setFilteredData(prevData => [...prevData, newApproval]);
+        });
+
+        // Listen for approval updates
+        socket.on('updateApproval', (updatedApproval) => {
+            setData(prevData => prevData.map(approval => 
+                approval.requestedBy === updatedApproval.requestedBy && approval.message === updatedApproval.message ? updatedApproval : approval
+            ));
+            setFilteredData(prevData => prevData.map(approval => 
+                approval.requestedBy === updatedApproval.requestedBy && approval.message === updatedApproval.message ? updatedApproval : approval
+            ));
+        });
+
+        // Clean up WebSocket connection when the component unmounts
+        return () => {
+            socket.disconnect();
+        };
     }, []);
 
     const handleFilter = useCallback((filters) => {

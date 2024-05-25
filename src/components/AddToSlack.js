@@ -10,6 +10,7 @@ const AddToSlack = () => {
 
     // Construct the Slack authorization URL
     const slackUrl = `https://slack.com/oauth/v2/authorize?client_id=${clientId}&scope=commands,chat:write,users:read,im:history&redirect_uri=${redirectUri}`;
+    
 
     return (
         <div>
